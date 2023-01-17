@@ -1,24 +1,30 @@
 import logo from './logo.svg';
 import './App.css';
+import { NavMenu } from './components/NavMenu';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { ATM } from './components/ATM';
+import { English } from './components/English';
+import { Polish } from './components/Polish';
+import { InsertPIN } from './components/InsertPIN';
 
 function App() {
   return (
+    <Router>
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+      <Routes>
+
+        <Route path='/' element={<ATM />} />
+
+        <Route path='/english' element={<English />} />
+        <Route path='/polish' element={<Polish />} />
+
+        <Route path='/pin' element={<InsertPIN />} />
+
+      </Routes>
+
     </div>
+    </Router>
   );
 }
 
